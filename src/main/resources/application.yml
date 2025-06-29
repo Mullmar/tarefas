@@ -1,0 +1,31 @@
+spring:
+  application:
+    name=Gestao de Tarefas
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: curso-database
+  generate-ddl: true
+  hibernate:
+    ddl-auto: validate
+  open-in-view: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/curso-database?allowPublicKeyRetrieval=true&useSSL=false
+    username: curso-dev
+    password: curso-dev
+    drive-class-name: com.mysql.cj.jdbc.Driver
+
+  flyway:
+    enable: true
+    baseline-on-migrate: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, beans
+  endpoint:
+    health:
+      show-details: always
